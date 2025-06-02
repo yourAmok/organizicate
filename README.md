@@ -26,12 +26,15 @@ Organizicate is a smart, user-friendly file and folder organizer for Windows. It
 
 ### Requirements
 
+>Note!
+>Those requirements are only for **source-code** use, you can use the full app by downloading the .zip file from this Github.
+
 - Python 3.8+
 - [ttkbootstrap](https://pypi.org/project/ttkbootstrap/)
 - [pystray](https://pypi.org/project/pystray/) (optional, for tray support)
 - [Pillow](https://pypi.org/project/Pillow/) (optional, for tray icon)
 
-### Installation (This method is if you're gonna install it from the source code, you can download the .exe from this GitHub.)
+### Installation
 
 1. **Clone the repository:**
    ```sh
