@@ -1,6 +1,6 @@
 # Organizicate (Beta v0.9.6)
 
-![image](https://github.com/user-attachments/assets/45a51a60-f85e-4714-b61d-a002a9da6b36)
+![image](https://github.com/user-attachments/assets/4d9a344b-4825-4f34-9e11-04e81d4ff7e7)
 
 Organizicate is a smart, user-friendly file and folder organizer for Windows. It helps you keep your digital workspace tidy by automatically sorting files and folders into customizable categories based on their extensions. With a modern interface, drag-and-drop support, undo, system tray minimization, and theme switching, Organizicate makes digital organization effortless.
 
