@@ -95,7 +95,8 @@ This project is licensed under the MIT License.
 ## 👤 Author
 
 Developed by [@yourAmok](https://github.com/yourAmok) 
-*Note: [@Hotmountain](https://github.com/Hotmountain) was my main account before I got locked out of it. [@yourAmok](https://github.com/yourAmok) is my new account.*
+>Note!
+>[@Hotmountain](https://github.com/Hotmountain) was my main account before I got locked out of it. [@yourAmok](https://github.com/yourAmok) is my new account.*
 
 > Note!
 > Please contact me for any bugs or unusual behaviour: kerogergesazmy@gmail.com
