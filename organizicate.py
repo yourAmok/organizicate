@@ -34,48 +34,79 @@ CONFIG_FILE = "config.json"
 
 # Default categories (hardcoded, cannot edit/delete)
 default_file_categories = {
-    "Documents": ['.doc', '.docx', '.pdf', '.txt', '.rtf', '.odt', '.pages', '.tex', '.wpd', '.wps', '.md', '.markdown', '.djvu'],
-    "Spreadsheets": ['.xls', '.xlsx', '.csv', '.ods', '.numbers', '.tsv', '.dif', '.dbf'],
-    "Presentations": ['.ppt', '.pptx', '.odp', '.key', '.pps', '.sldx'],
-    "eBooks": ['.epub', '.mobi', '.azw3', '.fb2', '.ibooks'],
-    "Images_Raster": ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.tif', '.webp', '.heic', '.ico', '.raw', '.cr2', '.nef', '.orf', '.sr2', '.arw', '.dng', '.pef', '.raf'],
-    "Images_Vector": ['.svg', '.ai', '.eps', '.pdf', '.cdr', '.wmf', '.emf', '.fh', '.sketch'],
-    "Audio": ['.mp3', '.wav', '.flac', '.aac', '.ogg', '.m4a', '.wma', '.aiff', '.alac', '.mid', '.midi', '.ape', '.opus', '.amr', '.dsd'],
-    "Video": ['.mp4', '.avi', '.mkv', '.mov', '.wmv', '.flv', '.webm', '.mpeg', '.mpg', '.3gp', '.vob', '.mts', '.m2ts', '.ts', '.rm', '.rmvb', '.divx', '.xvid', '.f4v'],
-    "Archives": ['.zip', '.rar', '.7z', '.tar', '.gz', '.bz2', '.xz', '.iso', '.dmg', '.cab', '.arj', '.lz', '.lzma', '.apk', '.rpm', '.deb', '.jar', '.vhd', '.vdi'],
-    "Code": ['.py', '.js', '.java', '.c', '.cpp', '.cs', '.rb', '.php', '.html', '.css', '.go', '.rs', '.swift', '.kt', '.m', '.pl', '.sh', '.bat', '.cmd', '.ts', '.tsx', '.jsx', '.lua', '.groovy', '.vbs', '.r', '.h', '.hpp', '.asm', '.s', '.d', '.erl'],
-    "Fonts": ['.ttf', '.otf', '.woff', '.woff2', '.eot', '.fon', '.fnt', '.pfb', '.pfm', '.afm'],
-    "System & Executables": ['.ini', '.cfg', '.conf', '.log', '.bat', '.cmd', '.sys', '.dll', '.drv', '.exe', '.msi', '.tmp', '.dat', '.bak', '.drv', '.efi'],
-    "Databases": ['.db', '.sql', '.sqlite', '.sqlite3', '.mdb', '.accdb', '.dbf', '.log', '.ldf', '.ndf', '.bak'],
-    "3DModels": ['.obj', '.fbx', '.stl', '.dae', '.3ds', '.blend', '.max', '.skp', '.dwg', '.dxf', '.3mf', '.ply'],
-    "Scripts": ['.ps1', '.vbs', '.pl', '.r', '.lua', '.groovy', '.tcl', '.bat', '.cmd', '.sh', '.zsh', '.fish'],
-    "Emails": ['.eml', '.msg', '.pst', '.ost', '.mbox'],
-    "VectorDesign": ['.psd', '.xcf', '.ai', '.svg', '.indd', '.cdr', '.pdf', '.eps', '.sketch', '.afdesign'],
-    "Backups": ['.bak', '.tmp', '.old', '.backup', '.swp', '.swo', '.sav', '.bkp'],
-    "Web": ['.css', '.js', '.html', '.php', '.jsp', '.asp', '.aspx', '.cgi', '.pl', '.vue', '.ts', '.tsx', '.jsx', '.json', '.xml', '.yaml', '.yml'],
-    "Markup": ['.md', '.markdown', '.rst', '.tex', '.txt', '.csv', '.tsv'],
-    "VirtualMachines": ['.vmdk', '.vdi', '.vhd', '.vhdx', '.qcow2', '.ova', '.ovf'],
-    "Minecraft": ['.mcworld', '.mcpack', '.mcaddon', '.mcmeta', '.mctemplate', '.jar', '.dat', '.nbt', '.litemod', '.mod', '.mcfunction'],
-    "Certificates": ['.pem', '.crt', '.cer', '.der', '.pfx', '.p12', '.key'],
-    "Logs": ['.log', '.trace', '.err', '.out'],
-    "Torrent": ['.torrent'],
-    "Calendar": ['.ics', '.ical'],
-    "ContactCards": ['.vcf', '.vcard'],
-    "GIS": ['.shp', '.shx', '.dbf', '.kml', '.kmz', '.gpx'],
-    "ProjectFiles": ['.sln', '.vcxproj', '.xcodeproj', '.gradle', 'Makefile', 'CMakeLists.txt', '.idea', '.iml', '.project', '.classpath'],
-    "GameFiles": ['.app', '.bat', '.com', '.jar', '.apk', '.bin', '.scr', '.gadget', '.mod', '.pak', '.sav', '.save', '.gam', '.dat', '.nes', '.snes', '.gba', '.gb', '.iso', '.xex', '.x86', '.x64', '.dll'],
-    "Misc": ['.dat', '.tmp', '.cache', '.bak', '.old', '.save', '.backup', '.ini', '.cfg'],
-    "Encrypted": ['.gpg', '.pgp', '.aes', '.enc', '.crypt', '.lock'],
-    "Subtitles": ['.srt', '.sub', '.idx', '.ssa', '.ass'],
-    "Shaders": ['.glsl', '.hlsl', '.cg', '.fx', '.shader'],
-    "Docker": ['Dockerfile', '.dockerignore', '.compose', '.yml', '.yaml'],
-    "Configuration": ['.json', '.yaml', '.yml', '.toml', '.ini', '.conf', '.plist', '.reg', '.desktop'],
-    "Shell": ['.sh', '.bash', '.zsh', '.csh', '.ksh', '.fish'],
-    "AudioProjects": ['.als', '.flp', '.logicx', '.ptx', '.aup', '.band'],
-    "VideoProjects": ['.prproj', '.veg', '.aep', '.pproj', '.fcpx', '.mlt', '.drp'],
-    "ImageProjects": ['.psd', '.xcf', '.kra', '.svg', '.ai', '.indd'],
-    "CompressedBackups": ['.tar.gz', '.tar.bz2', '.tar.xz', '.tgz', '.tbz2', '.txz'],
-    "Shortcuts": ['.lnk', '.url', '.webloc', '.desktop', '.alias', '.pif', '.scf', '.library-ms', '.folder', '.desklink'],
+    "Documents": [
+        # Documents, Spreadsheets, Presentations, eBooks, Markup, Calendar, ContactCards
+        '.doc', '.docx', '.pdf', '.txt', '.rtf', '.odt', '.pages', '.tex', '.wpd', '.wps', '.md', '.markdown', '.djvu',
+        '.xls', '.xlsx', '.csv', '.ods', '.numbers', '.tsv', '.dif', '.dbf',
+        '.ppt', '.pptx', '.odp', '.key', '.pps', '.sldx',
+        '.epub', '.mobi', '.azw3', '.fb2', '.ibooks',
+        '.rst', '.ical', '.ics', '.vcard', '.vcf', '.mbox', '.eml', '.msg', '.pst', '.ost',
+    ],
+    "Images": [
+        # Images_Raster, Images_Vector, VectorDesign, ImageProjects
+        '.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.tif', '.webp', '.heic', '.ico', '.raw', '.cr2', '.nef', '.orf', '.sr2', '.arw', '.dng', '.pef', '.raf',
+        '.svg', '.ai', '.eps', '.pdf', '.cdr', '.wmf', '.emf', '.fh', '.sketch',
+        '.psd', '.xcf', '.indd', '.kra', '.afdesign', '.psd', '.xcf', '.kra', '.svg', '.ai', '.indd',
+    ],
+    "Audio": [
+        # Audio, AudioProjects
+        '.mp3', '.wav', '.flac', '.aac', '.ogg', '.m4a', '.wma', '.aiff', '.alac', '.mid', '.midi', '.ape', '.opus', '.amr', '.dsd',
+        '.als', '.flp', '.logicx', '.ptx', '.aup', '.band',
+    ],
+    "Video": [
+        # Video, VideoProjects
+        '.mp4', '.avi', '.mkv', '.mov', '.wmv', '.flv', '.webm', '.mpeg', '.mpg', '.3gp', '.vob', '.mts', '.m2ts', '.ts', '.rm', '.rmvb', '.divx', '.xvid', '.f4v',
+        '.prproj', '.veg', '.aep', '.pproj', '.fcpx', '.mlt', '.drp',
+    ],
+    "Archives": [
+        # Archives, CompressedBackups, Backups
+        '.zip', '.rar', '.7z', '.tar', '.gz', '.bz2', '.xz', '.iso', '.dmg', '.cab', '.arj', '.lz', '.lzma', '.apk', '.rpm', '.deb', '.jar', '.vhd', '.vdi',
+        '.tar.gz', '.tar.bz2', '.tar.xz', '.tgz', '.tbz2', '.txz',
+        '.bak', '.tmp', '.old', '.backup', '.swp', '.swo', '.sav', '.bkp',
+    ],
+    "Code": [
+        # Code, Scripts, Web, Docker, Shell, Shaders, ProjectFiles
+        '.py', '.js', '.java', '.c', '.cpp', '.cs', '.rb', '.php', '.html', '.css', '.go', '.rs', '.swift', '.kt', '.m', '.pl', '.sh', '.bat', '.cmd', '.ts', '.tsx', '.jsx', '.lua', '.groovy', '.vbs', '.r', '.h', '.hpp', '.asm', '.s', '.d', '.erl',
+        '.ps1', '.vbs', '.pl', '.r', '.lua', '.groovy', '.tcl', '.bat', '.cmd', '.sh', '.zsh', '.fish',
+        '.css', '.js', '.html', '.php', '.jsp', '.asp', '.aspx', '.cgi', '.pl', '.vue', '.ts', '.tsx', '.jsx', '.json', '.xml', '.yaml', '.yml',
+        'Dockerfile', '.dockerignore', '.compose', '.yml', '.yaml',
+        '.sh', '.bash', '.zsh', '.csh', '.ksh', '.fish',
+        '.glsl', '.hlsl', '.cg', '.fx', '.shader',
+        '.sln', '.vcxproj', '.xcodeproj', '.gradle', 'Makefile', 'CMakeLists.txt', '.idea', '.iml', '.project', '.classpath',
+    ],
+    "System & Apps": [
+        # Combined Apps & Games and System
+        '.app', '.bat', '.com', '.jar', '.apk', '.bin', '.scr', '.gadget', '.mod', '.pak', '.sav', '.save', '.gam', '.dat', '.nes', '.snes', '.gba', '.gb', '.iso', '.xex', '.x86', '.x64', '.dll',
+        '.mcworld', '.mcpack', '.mcaddon', '.mcmeta', '.mctemplate', '.jar', '.dat', '.nbt', '.litemod', '.mod', '.mcfunction',
+        '.vmdk', '.vdi', '.vhd', '.vhdx', '.qcow2', '.ova', '.ovf',
+        '.ini', '.cfg', '.conf', '.log', '.bat', '.cmd', '.sys', '.dll', '.drv', '.exe', '.msi', '.tmp', '.dat', '.bak', '.drv', '.efi',
+        '.json', '.yaml', '.yml', '.toml', '.ini', '.conf', '.plist', '.reg', '.desktop',
+        '.db', '.sql', '.sqlite', '.sqlite3', '.mdb', '.accdb', '.dbf', '.log', '.ldf', '.ndf', '.bak',
+        '.ttf', '.otf', '.woff', '.woff2', '.eot', '.fon', '.fnt', '.pfb', '.pfm', '.afm',
+        '.pem', '.crt', '.cer', '.der', '.pfx', '.p12', '.key',
+        '.log', '.trace', '.err', '.out',
+        '.dat', '.tmp', '.cache', '.bak', '.old', '.save', '.backup', '.ini', '.cfg',
+        '.gpg', '.pgp', '.aes', '.enc', '.crypt', '.lock',
+        '.srt', '.sub', '.idx', '.ssa', '.ass',
+        '.lnk', '.url', '.webloc', '.desktop', '.alias', '.pif', '.scf', '.library-ms', '.folder', '.desklink',
+        '.shp', '.shx', '.dbf', '.kml', '.kmz', '.gpx',
+    ],
+    "Other": [
+        # Expanded with more miscellaneous extensions
+        '.torrent', '.bak', '.swp', '.swo', '.old', '.backup', '.cache', '.tmp', '.unknown', '.misc', '.zzz', '.foo', '.bar', '.dat', '.bin', '.log', '.err', '.out', '.dmp', '.dump', '.temp', '.random', '.undefined', '.none', '.file', '.stuff', '.miscfile', '.extra', '.spare', '.spurious', '.junk', '.useless', '.zzz', '.zzz2', '.zzz3', '.zzz4', '.zzz5', '.zzz6', '.zzz7', '.zzz8', '.zzz9', '.zzz10',
+    ],
+    "Design": [
+        # New category for design files
+        '.psd', '.ai', '.sketch', '.xd', '.fig', '.indd', '.afdesign', '.cdr', '.svg', '.eps', '.pdf', '.xcf', '.kra',
+    ],
+    "Documents": [
+        # New category for learning/education files
+        '.epub', '.mobi', '.azw3', '.fb2', '.ibooks', '.pdf', '.djvu', '.md', '.markdown', '.rst', '.txt', '.ppt', '.pptx', '.odp', '.key', '.pps', '.sldx',
+    ],
+    "3D & CAD": [
+        # New category for 3D models and CAD files
+        '.obj', '.fbx', '.stl', '.dae', '.3ds', '.blend', '.max', '.skp', '.dwg', '.dxf', '.3mf', '.ply',
+    ],
 }
 
 RECENT_ACTIONS_LIMIT = 20
@@ -192,9 +223,9 @@ class OrganizicateBeta(ttkb.Window):
                 print("Warning: appicon.ico not found in script directory.")
         except Exception as e:
             print(f"Warning: Could not set window icon: {e}")
-        self.title("Organizicate (Beta v0.9.6)")
-        self.geometry("1085x931")  # Set canvas size to 733x785
-        self.resizable(True, True)  # Make window resizable and maximizable
+        self.title("Organizicate (v0.9.8.1)")
+        self.geometry("990x800")  # Set canvas size to 733x785
+        self.resizable(False, False)  # Make window resizable and maximizable
 
         # Set default font for all widgets except the console/output
         default_font = ("SF Pro Display", 12)
@@ -204,7 +235,6 @@ class OrganizicateBeta(ttkb.Window):
         style.configure("TButton", font=("SF Pro Display", 11))
         self.button_style = "TButton"
 
-        self.recent_actions = []
         self.action_queue = queue.Queue()
         self.operation_thread = None
         self.after(200, self.process_action_queue)
@@ -315,24 +345,10 @@ class OrganizicateBeta(ttkb.Window):
         main_frame = ttk.Frame(self)
         main_frame.pack(fill='both', expand=True, padx=10, pady=10)
 
-        # --- Theme Selection Dropdown ---
-        theme_frame = ttk.Frame(main_frame)
-        theme_frame.grid(row=0, column=1, sticky='e', padx=(0, 5))
-        ttk.Label(theme_frame, text="Theme:").pack(side='left')
-        self.theme_combo = ttk.Combobox(
-            theme_frame,
-            values=self.available_themes,
-            state="readonly",
-            width=12,
-            textvariable=self.current_theme
-        )
-        self.theme_combo.pack(side='left')
-        self.theme_combo.bind("<<ComboboxSelected>>", self.on_theme_change)
-        ToolTip(self.theme_combo, "Change the application theme")
-
-        # --- Operation Section ---
-        ttk.Label(main_frame, text="Select organization operation:", font=("SF Pro Display", 12, "bold")).grid(row=0, column=0, sticky='w')
-
+        # --- Operation and Theme Selection (side by side) ---
+        op_theme_frame = ttk.Frame(main_frame)
+        op_theme_frame.grid(row=0, column=0, columnspan=2, sticky='w', pady=(0, 5))
+        ttk.Label(op_theme_frame, text="Select organization operation:", font=("SF Pro Display", 12, "bold")).pack(side='left')
         self.operations = {
             "Organize a single folder": 1,
             "Organize a single file": 2,
@@ -341,11 +357,23 @@ class OrganizicateBeta(ttkb.Window):
         }
         self.operation_var = tk.StringVar()
         self.operation_dropdown = ttk.Combobox(
-            main_frame, values=list(self.operations.keys()), state="readonly", width=40,
+            op_theme_frame, values=list(self.operations.keys()), state="readonly", width=40,
             textvariable=self.operation_var
         )
-        self.operation_dropdown.grid(row=1, column=0, sticky='w')
+        self.operation_dropdown.pack(side='left', padx=(10, 0))
         self.operation_dropdown.current(0)
+        # Theme dropdown (now next to operation dropdown)
+        ttk.Label(op_theme_frame, text="Theme:").pack(side='left', padx=(15, 0))
+        self.theme_combo = ttk.Combobox(
+            op_theme_frame,
+            values=self.available_themes,
+            state="readonly",
+            width=12,
+            textvariable=self.current_theme
+        )
+        self.theme_combo.pack(side='left')
+        self.theme_combo.bind("<<ComboboxSelected>>", self.on_theme_change)
+        ToolTip(self.theme_combo, "Change the application theme")
 
         # --- Path input with recent folders dropdown ---
         path_frame = ttk.Frame(main_frame)
@@ -378,7 +406,7 @@ class OrganizicateBeta(ttkb.Window):
         btn_frame = ttk.Frame(main_frame)
         btn_frame.grid(row=3, column=0, pady=10, sticky='w')
 
-        run_btn = ttk.Button(btn_frame, text="Run Operation", command=self.run_operation)
+        run_btn = ttk.Button(btn_frame, text="Organize", command=self.run_operation)
         run_btn.pack(side='left', padx=5)
         ToolTip(run_btn, "Run the selected organization operation")
 
@@ -398,15 +426,9 @@ class OrganizicateBeta(ttkb.Window):
         import_btn.pack(side='left', padx=5)
         ToolTip(import_btn, "Import user categories from a file")
 
-        # --- Recent Actions Log ---
-        actions_frame = ttk.LabelFrame(main_frame, text="Recent Actions Log", padding=5)
-        actions_frame.grid(row=7, column=0, sticky='ew', pady=5)
-        self.recent_actions_text = scrolledtext.ScrolledText(actions_frame, width=95, height=5, font=("Consolas", 9), state='disabled')
-        self.recent_actions_text.pack(fill='both', expand=True)
-
         # --- Output Section ---
         ttk.Label(main_frame, text="Output:", font=("SF Pro Display", 12, "bold")).grid(row=4, column=0, sticky='w')
-        self.output_text = scrolledtext.ScrolledText(main_frame, width=95, height=15, font=("Consolas", 10), state='disabled')
+        self.output_text = scrolledtext.ScrolledText(main_frame, width=95, height=15, font=("0xProto Nerd Font", 10), state='disabled')
         self.output_text.grid(row=5, column=0, sticky='nsew')
 
         # --- Category Manager Section ---
@@ -688,7 +710,7 @@ class OrganizicateBeta(ttkb.Window):
             messagebox.showerror("Error", "Cannot delete default categories.")
             return
         
-        if messagebox.showyesno("Confirm Delete", f"Are you sure you want to delete category '{name}'?"):
+        if messagebox.askyesno("Confirm Delete", f"Are you sure you want to delete category '{name}'?"):
             self.file_categories.pop(name, None)
             save_categories(self.file_categories)
             self.extension_to_category = build_extension_map(self.file_categories)
@@ -710,20 +732,6 @@ class OrganizicateBeta(ttkb.Window):
         self.cat_desc_entry.config(state='normal')
         self.category_listbox.selection_clear(0, 'end')
 
-    def add_recent_action(self, message):
-        self.recent_actions.append(message)
-        if len(self.recent_actions) > RECENT_ACTIONS_LIMIT:
-            self.recent_actions = self.recent_actions[-RECENT_ACTIONS_LIMIT:]
-        self.update_recent_actions_log()
-
-    def update_recent_actions_log(self):
-        self.recent_actions_text.config(state='normal')
-        self.recent_actions_text.delete('1.0', 'end')
-        for msg in self.recent_actions[-RECENT_ACTIONS_LIMIT:]:
-            self.recent_actions_text.insert('end', msg + "\n")
-        self.recent_actions_text.see('end')
-        self.recent_actions_text.config(state='disabled')
-    
     def browse_path(self):
         op = self.operations[self.operation_var.get()]
         if op in (1, 3, 4):  # Folder related operations
@@ -1108,14 +1116,63 @@ class OrganizicateBeta(ttkb.Window):
         self.status_var.set(f"Copied extensions for '{cat_name}' to clipboard.")
 
     def show_about(self):
-        """Show About dialog."""
-        messagebox.showinfo(
-            "About Organizicate",
-            "Organizicate (Beta v0.9.6)\n\n"
-            "A smart file/folder organizer.\n"
-            "\nDeveloped by @yourAmok.\n"
-            "https://github.com/youramok/organizicate\n"
+        import sys, platform, os
+        about_win = tk.Toplevel(self)
+        # Set desired size here
+        width, height = 540, 630
+        about_win.resizable(False, False)
+        about_win.grab_set()
+        frame = ttk.Frame(about_win, padding=30)
+        frame.pack(fill='both', expand=True)
+        # App name
+        app_name = ttk.Label(frame, text="Organizicate", font=("SF Pro Display", 30, "bold"))
+        app_name.pack(pady=(0, 18))
+        # Version
+        version = ttk.Label(frame, text="Beta (v0.9.8.1)", font=("SF Pro Display", 16, "bold"), foreground="#555")
+        version.pack(pady=(0, 18))
+        # Description
+        desc = ttk.Label(
+            frame,
+            text="A modern, customizable file/folder organizer for Windows.\n\nOrganizicate helps you quickly sort, categorize, and manage your files and folders with ease.\n\nDeveloped by @yourAmok.",
+            font=("SF Pro Display", 13),
+            justify="center",
+            wraplength=470
         )
+        desc.pack(pady=(0, 18))
+        # Technical info
+        info_lines = [
+            f"Python version: {platform.python_version()}",
+            f"Platform: {platform.system()} {platform.release()} ({platform.version()})",
+            f"App location: {os.path.abspath(sys.argv[0])}",
+            f"Config file: {os.path.abspath(CONFIG_FILE)}",
+            f"Log file: {os.path.abspath(LOG_FILE)}",
+            f"Default categories: {len(self.default_categories)}",
+            f"User categories: {len([c for c in self.file_categories if c not in self.default_categories])}",
+            f"Theme: {self.current_theme.get() if hasattr(self, 'current_theme') else 'N/A'}",
+            f"Drag-and-drop: {'Enabled' if getattr(self, 'dnd_enabled', False) else 'Disabled'}",
+            f"Threading: {'Enabled' if hasattr(self, 'operation_thread') else 'Disabled'}",
+            f"Dependencies: tkinter, ttkbootstrap, PIL, pystray"
+        ]
+        info = ttk.Label(frame, text="\n".join(info_lines), font=("SF Pro Display", 11), justify="center", foreground="#444", anchor="center")
+        info.pack(pady=(0, 10), fill='x', expand=True)
+        # GitHub link
+        def open_github(event=None):
+            import webbrowser
+            webbrowser.open_new("https://github.com/yourAmok/organizicate")
+        link = tk.Label(frame, text="GitHub: github.com/yourAmok/organizicate", fg="#2563eb", cursor="hand2", font=("SF Pro Display", 10, "underline"))
+        link.pack(pady=(10, 0))
+        link.bind("<Button-1>", open_github)
+        # Close button
+        close_btn = ttk.Button(frame, text="Close", command=about_win.destroy)
+        close_btn.pack(pady=(18, 0))
+        # Center and set size
+        self._center_window(about_win, width, height)
+
+    def _center_window(self, win, width, height):
+        win.update_idletasks()
+        x = self.winfo_rootx() + (self.winfo_width() // 2) - (width // 2)
+        y = self.winfo_rooty() + (self.winfo_height() // 2) - (height // 2)
+        win.geometry(f"{width}x{height}+{x}+{y}")
 
     def on_theme_change(self, event=None):
         """Handle theme change from the dropdown."""
@@ -1123,7 +1180,7 @@ class OrganizicateBeta(ttkb.Window):
         try:
             ttkb.Style().theme_use(selected_theme)
             # Re-apply button font after theme change
-            ttkb.Style().configure("TButton", font=("SF Pro Display", 10))
+            ttkb.Style().configure("TButton", font=("SF Pro Display", 11))
             self.status_var.set(f"Theme changed to '{selected_theme}'")
         except Exception as e:
             self.status_var.set(f"Failed to change theme: {e}")
